@@ -1,23 +1,18 @@
 package app.main;
 
-import app.main.model.Admin;
-import app.main.util.Teclado;
+import pacientes.Paciente;
+import doctores.Doctor;
+import horarios.Horario;
+import citas.Cita;
 
 public class Main {
     public static void main(String[] args) {
 
-        Admin admin = new Admin("admin", "1234");
+        Paciente paciente = new Paciente("Juan Pérez", "8123456789");
+        Doctor doctor = new Doctor("Dra. Ana López", "Medicina General");
+        Horario horario = new Horario("Lunes", "10:00 AM");
 
-        System.out.print("Usuario: ");
-        String user = Teclado.sc.nextLine();
-
-        System.out.print("Contraseña: ");
-        String pass = Teclado.sc.nextLine();
-
-        if (admin.validar(user, pass)) {
-            System.out.println("Acceso concedido");
-        } else {
-            System.out.println("Acceso denegado");
-        }
+        Cita cita = new Cita(paciente, doctor, horario);
+        cita.mostrarCita();
     }
 }
